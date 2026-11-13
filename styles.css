@@ -152,6 +152,7 @@ h1 .accent { color: var(--accent); }
   .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-right: 0; }
   .stage { max-width: 420px; margin-left: auto; }
   .rings { right: 0; }
+  .dots-tr { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
