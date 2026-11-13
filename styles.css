@@ -34,6 +34,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   align-items: center;
   gap: 16px;
   padding: 0 clamp(16px, 4vw, 48px);
+  position: relative; z-index: 2;
 }
 .brand { font-weight: 500; font-size: 0.95rem; justify-self: start; position: relative; padding: 22px 0 26px; }
 .brand::after { content: ""; position: absolute; left: 0; bottom: 20px; width: 14px; height: 1px; background: var(--ink); }
@@ -59,6 +60,32 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   margin: 0 clamp(16px, 4vw, 48px) 32px;
   border: 1px solid var(--line);
 }
+.hero { position: relative; }
+.hero-copy, .visual { position: relative; z-index: 1; }
+
+/* background decor: grid lines, dots, rings, corner accent */
+.decor {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+  background: linear-gradient(90deg, #ebf1fb 1px, transparent 1px) 0 0 / 25% 100%;
+}
+.rings {
+  position: absolute; right: 22%; top: 50%; width: clamp(420px, 46vw, 700px); aspect-ratio: 1;
+  transform: translate(50%, -50%); border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 47px, #d3def5 47px 48px);
+  -webkit-mask-image: radial-gradient(circle, #000 35%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 35%, transparent 70%);
+}
+.dots {
+  position: absolute; width: 64px; height: 44px;
+  background: radial-gradient(circle, #b4c4ec 1.3px, transparent 1.7px) 0 0 / 11px 11px;
+}
+.dots-tr { top: 28px; right: 28px; }
+.dots-br { bottom: 36px; right: 36px; }
+.hero::after {
+  content: ""; position: absolute; right: 0; bottom: -1px; width: 40px; height: 2px;
+  background: var(--accent-light);
+}
+
 h1 {
   margin: 0 0 20px;
   font-weight: 800;
