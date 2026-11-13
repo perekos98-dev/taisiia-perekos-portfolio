@@ -76,7 +76,6 @@ h1 .accent { color: var(--accent); }
 
 /* placeholder visual (CSS-drawn 3D mockup) */
 .visual { margin: 0; text-align: center; }
-.visual figcaption { margin-top: 12px; font-size: 0.7rem; color: var(--muted); }
 .stage {
   position: relative; aspect-ratio: 1 / 1; max-width: 420px; margin: 0 auto;
   background: linear-gradient(160deg, #f4f8ff, #e6efff);
