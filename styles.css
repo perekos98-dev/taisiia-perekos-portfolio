@@ -3,6 +3,7 @@
   --muted: #4a5470;
   --accent: #2a14c8;
   --accent-light: #5b7cf2;
+  --muted-blue: #7686ad;
   --line: #e3ebf8;
   --wash: #eef4ff;
   --paper: #ffffff;
@@ -43,8 +44,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   content: ""; position: absolute; left: 0; bottom: -1px; width: 14px; height: 2px;
   background: var(--accent-light);
 }
-.lang { justify-self: end; display: flex; gap: 14px; font-size: 0.9rem; color: var(--accent); }
-.lang a[aria-current="true"] { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.lang { justify-self: end; display: flex; gap: 14px; font-size: 0.9rem; }
+.lang a { color: var(--muted-blue); }
+.lang a[aria-current="true"] { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
 
 /* hero */
 .hero {
