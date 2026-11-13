@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>План сайту Taisiia Perekos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout idea: clean white reading document. Number chips on the left rail, pale-blue panels and white cards on the right, one typeface, one soft blue accent. */
+  :root {
+    --paper: #FFFFFF;
+    --wash: #F3F8FE;
+    --tint: #E7F0FB;
+    --ink: #1F2B3F;
+    --muted: #66758C;
+    --accent: #2F62B8;
+    --line: #DCE7F5;
+    --font: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--paper); }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--font); font-size: 1.0625rem; line-height: 1.7; font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  p { margin: 0; }
+
+  /* header */
+  .head { background: linear-gradient(180deg, var(--wash) 0%, var(--paper) 100%); }
+  .top {
+    display: flex; justify-content: space-between; gap: 16px; padding: 24px 0;
+    font-size: 0.8125rem; letter-spacing: 0.06em; color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+  .hero { padding: clamp(28px, 6vw, 72px) 0 clamp(40px, 7vw, 80px); animation: rise 0.7s ease-out both; }
+  .hero h1 {
+    margin: 0; max-width: 18ch; font-weight: 500; letter-spacing: -0.035em; line-height: 1.1;
+    font-size: clamp(2rem, 5.6vw, 3.75rem); text-wrap: balance;
+  }
+  .hero h1 span { display: block; margin-top: 0.3em; color: var(--accent); font-weight: 400; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .hero { animation: none; } }
+
+  /* sections */
+  .sec {
+    display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 0 clamp(16px, 3vw, 36px);
+    padding: clamp(36px, 6vw, 64px) 0; border-top: 1px solid var(--line);
+  }
+  .num {
+    width: 56px; height: 56px; border-radius: 16px; background: var(--tint); color: var(--accent);
+    display: grid; place-items: center; font-weight: 500; font-size: 1.5rem; line-height: 1;
+  }
+  .sec h2 {
+    margin: 0 0 clamp(20px, 3vw, 28px); padding-top: 6px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.2;
+    font-size: clamp(1.4rem, 3vw, 2rem); text-wrap: balance;
+  }
+  .lede {
+    background: var(--tint); border-radius: 18px; padding: clamp(20px, 3vw, 32px);
+    font-weight: 500; letter-spacing: -0.015em; line-height: 1.45;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem); text-wrap: pretty; max-width: 42ch;
+  }
+  .intro { max-width: 66ch; margin-bottom: 28px; }
+
+  /* cards */
+  .card, .row, .q {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px;
+    box-shadow: 0 1px 2px rgba(47, 98, 184, 0.06);
+  }
+  .cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .card b, .row b { display: block; margin-bottom: 6px; font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; color: var(--accent); }
+  .card p, .row p { font-size: 1rem; line-height: 1.65; }
+
+  /* home blocks */
+  .rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .row { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 18px; }
+  .idx {
+    display: inline-grid; place-items: center; width: 40px; height: 28px; border-radius: 999px;
+    background: var(--tint); color: var(--accent); font-size: 0.8125rem; font-weight: 500;
+    font-variant-numeric: tabular-nums; letter-spacing: 0.02em; margin-top: 2px;
+  }
+  .works { display: grid; gap: 10px; margin-top: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+  .work { background: var(--wash); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 0.95rem; line-height: 1.6; }
+  .note { margin-top: 22px; color: var(--muted); font-size: 0.95rem; max-width: 66ch; }
+
+  /* questions and answers */
+  .qa { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .q { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 18px; }
+  .q .ask { font-weight: 500; line-height: 1.6; text-wrap: pretty; }
+  .ans {
+    margin-top: 12px; padding: 12px 16px; background: var(--wash); border-left: 3px solid var(--accent);
+    border-radius: 4px 12px 12px 4px; font-size: 1rem; line-height: 1.65;
+  }
+  .ans strong { color: var(--accent); font-weight: 600; }
+  .ans ul { margin: 6px 0 0; padding-left: 1.2em; }
+  .ans li + li { margin-top: 3px; }
+  .ans li::marker { color: var(--accent); }
+
+  @media (max-width: 720px) {
+    .sec { grid-template-columns: minmax(0, 1fr); }
+    .num { margin-bottom: 12px; width: 48px; height: 48px; border-radius: 14px; }
+    .sec h2 { padding-top: 0; }
+    .row, .q { grid-template-columns: minmax(0, 1fr); }
+    .idx { margin-bottom: 6px; }
+  }
+  .end { height: clamp(32px, 6vw, 64px); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="head"><div class="wrap">
+  <div class="top"><span>2026-11-10</span><span>Taisiia Perekos</span></div>
+  <header class="hero">
+    <h1>План сайту-портфоліо: <span>Web &amp; Mobile UI/UX Designer</span></h1>
+  </header>
+</div></div>
+
+<div class="wrap">
+
+  <!-- 1 -->
+  <section class="sec" id="s1">
+    <div class="num" aria-hidden="true">1</div>
+    <div>
+      <h2>1. Позиціонування</h2>
+      <p class="lede">Я Web &amp; Mobile UI/UX Designer, створюю зручні та зрозумілі вебсайти й мобільні продукти для бізнесів та їхніх користувачів, поєднуючи потреби людей із цілями бізнесу.</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="sec" id="s2">
+    <div class="num" aria-hidden="true">2</div>
+    <div>
+      <h2>2. Сторінки сайту</h2>
+      <p class="intro">Сайт складається з шести сторінок: три кейси мають власні сторінки, а блок «Роботи» живе на головній, бо проєктів три і ще одна сторінка-індекс не потрібна. Кожна сторінка існує в трьох мовних версіях: українській, англійській та іспанській.</p>
+      <ul class="cards">
+        <li class="card"><b>Головна.</b><p>Пояснює позиціонування і веде відвідувача до трьох кейсів та контакту.</p></li>
+        <li class="card"><b>SpikUp.</b><p>Мобільний застосунок для вивчення іноземних мов. Mobile App · UX/UI Designer · Personal Project</p></li>
+        <li class="card"><b>LuxTime.</b><p>Кейс лендингу для бренду розкішних годинників: самостійний проєкт тривалістю менше тижня, роль Web/UI Designer, фокус на візуальній концепції, композиції, типографіці та UI-дизайні.</p></li>
+        <li class="card"><b>MindNest.</b><p>Кейс вебсервісу для ментального добробуту: самостійний проєкт тривалістю понад 2 місяці, роль UX/UI Designer, повний UX/UI-процес.</p></li>
+        <li class="card"><b>Про мене.</b><p>Окрема сторінка: ви як Web &amp; Mobile UI/UX Designer, ваш підхід до дизайну, інтерес до створення веб- і мобільних продуктів та комерційний досвід у дизайн-агентстві без назв клієнтів, проєктів і конфіденційних деталей. Фото додасте пізніше.</p></li>
+        <li class="card"><b>Контакти.</b><p>Дає зрозумілий спосіб написати вам про проєкт, фриланс або вакансію: email, Behance і LinkedIn, без кнопки завантаження CV.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="sec" id="s3">
+    <div class="num" aria-hidden="true">3</div>
+    <div>
+      <h2>3. Блоки головної сторінки</h2>
+      <p class="intro">Головна складається із семи блоків, і кейси стоять одразу після першого екрана, щоб відвідувач бачив роботи раніше, ніж прочитає про вас.</p>
+      <ol class="rows">
+        <li class="row"><span class="idx">01</span><div><b>Шапка.</b><p>Назва Taisiia Perekos, навігація (Роботи, Про мене, Контакти), перемикач мов UA, EN, ES і кнопка «Зв’язатися».</p></div></li>
+        <li class="row"><span class="idx">02</span><div><b>Перший екран.</b><p>Позиціонування як заголовок, один рядок про те, що ви проєктуєте (вебсайти, вебсервіси, мобільні застосунки), дві кнопки: «Дивитися роботи» і «Зв’язатися». Візуальний напрям: мінімалізм і виразна типографіка, можливо з 3D-елементами; остаточне рішення ще не прийняте.</p></div></li>
+        <li class="row"><span class="idx">03</span><div><b>Обрані роботи.</b><p>Три картки, кожна з позначкою платформи і одним реченням про продукт, його користувача і мету:</p>
+          <div class="works">
+            <div class="work">SpikUp — Мобільний застосунок для вивчення іноземних мов. Mobile App · UX/UI Designer · Personal Project</div>
+            <div class="work">LuxTime — Лендинг для бренду розкішних годинників. Landing Page · Web/UI Designer · Personal Project</div>
+            <div class="work">MindNest — Вебсервіс для підтримки ментального добробуту. Web Service · UX/UI Designer · Personal Project</div>
+          </div></div></li>
+        <li class="row"><span class="idx">04</span><div><b>Як я працюю.</b><p>Процес показаний окремо для кожного проєкту, бо вони різні. У SpikUp і MindNest розповідь іде повним циклом: дослідження, User Flow, Wireframes, UI Kit і Final Design, і на кожному кроці видно, як потреба користувача зв’язана з ціллю продукту. У LuxTime розповідь будується навколо UI-дизайну, візуальної концепції, композиції та типографіки і не повторює схему перших двох. Показуємо процес роботи і фінальні екрани, без результатів, метрик, тестувань і відгуків, а прототипи не згадуємо там, де їх наявність не підтверджена.</p></div></li>
+        <li class="row"><span class="idx">05</span><div><b>Навички.</b><p>Окремий компактний блок без великого переліку: Figma, AI Tools та напрямки UI/UX Design, Web Design, Mobile Design.</p></div></li>
+        <li class="row"><span class="idx">06</span><div><b>Про мене.</b><p>Короткий текст про вас як Web &amp; Mobile UI/UX Designer, ваш підхід до дизайну й інтерес до веб- та мобільних продуктів, згадка про комерційний досвід у дизайн-агентстві як UI/UX Designer і Web Designer (без назв клієнтів, проєктів і конфіденційних деталей) та посилання на окрему сторінку «Про мене».</p></div></li>
+        <li class="row"><span class="idx">07</span><div><b>Контакти.</b><p>Фінальний заклик написати вам з пропозицією проєкту або вакансії і канали зв’язку: email, Behance, LinkedIn; без кнопки завантаження CV.</p></div></li>
+      </ol>
+      <p class="note">Порядок карток у блоці 3 відповідає вашому вибору: SpikUp, LuxTime, MindNest.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="sec" id="s4">
+    <div class="num" aria-hidden="true">4</div>
+    <div>
+      <h2>4. Питання до вас</h2>
+      <p class="intro">На всі 13 питань є відповіді, вони записані під кожним питанням.</p>
+      <ol class="qa">
+        <li class="q"><span class="idx">01</span><div>
+          <p class="ask">Як підписувати сайт (ім’я, прізвище або нікнейм) і якою мовою він буде: українською, англійською чи обома?</p>
+          <div class="ans"><strong>Відповідь:</strong> Taisiia Perekos. Сайт тримовний: українська, англійська та іспанська.</div></div></li>
+        <li class="q"><span class="idx">02</span><div>
+          <p class="ask">Кого хочете залучити першим: компанії, фриланс-замовників чи обидва варіанти порівну? Це вирішить, як писати перший екран і блок «Про мене».</p>
+          <div class="ans"><strong>Відповідь:</strong> Порівну: компанії, які шукають дизайнера на full-time, і клієнти для фрилансу та проєктної співпраці.</div></div></li>
+        <li class="q"><span class="idx">03</span><div>
+          <p class="ask">По кожному з трьох проєктів (SpikUp, LuxTime, MindNest): яка була ваша роль, скільки тривав проєкт, чи це самостійна робота чи командна, які етапи у вас є (дослідження, User Flow, Wireframes, UI Kit, Final Design, прототип) і в яких інструментах ви працювали?</p>
+          <div class="ans"><strong>Відповідь:</strong>
+            <ul>
+              <li>SpikUp: UX/UI Designer, самостійний проєкт, понад 2 місяці, повний UX/UI-процес.</li>
+              <li>MindNest: UX/UI Designer, самостійний проєкт, понад 2 місяці, повний UX/UI-процес.</li>
+              <li>LuxTime: Web/UI Designer, самостійний проєкт, менше тижня; фокус на візуальній концепції, композиції, типографіці та UI-дизайні.</li>
+              <li>Інструменти: Figma та AI-інструменти.</li>
+              <li>Наявність прототипів не підтверджена, тому їх не згадуємо.</li>
+            </ul></div></div></li>
+        <li class="q"><span class="idx">04</span><div>
+          <p class="ask">Який з трьох кейсів сильніший і у якому порядку їх показувати? Чи є в кейсах вимірювані результати, наприклад тести юзабіліті або відгуки, чи лише процес і фінальні екрани?</p>
+          <div class="ans"><strong>Відповідь:</strong> Порядок: SpikUp, LuxTime, MindNest; який кейс найсильніший, не названо. Вигаданих результатів, метрик, тестувань і відгуків не вказуємо: показуємо процес роботи та фінальні екрани.</div></div></li>
+        <li class="q"><span class="idx">05</span><div>
+          <p class="ask">«Про мене» буде окремою сторінкою чи блоком на головній, і чи є фото? Що саме хочете розповісти про себе?</p>
+          <div class="ans"><strong>Відповідь:</strong> Окрема сторінка. Розповісти про себе як про Web &amp; Mobile UI/UX Designer, про підхід до дизайну та інтерес до створення веб- і мобільних продуктів. Фото вирішите пізніше.</div></div></li>
+        <li class="q"><span class="idx">06</span><div>
+          <p class="ask">Чи додавати загальний рядок про досвід (наприклад, кількість місяців) без будь-яких деталей про проєкти?</p>
+          <div class="ans"><strong>Відповідь:</strong> Додати інформацію про комерційний досвід роботи в дизайн-агентстві як UI/UX Designer та Web Designer. Через NDA не розкривати назви клієнтів, проєкти та конфіденційні деталі.</div></div></li>
+        <li class="q"><span class="idx">07</span><div>
+          <p class="ask">Які канали зв’язку показати: email, LinkedIn, Behance, Telegram, щось інше? Чи потрібне резюме для завантаження?</p>
+          <div class="ans"><strong>Відповідь:</strong> Email, Behance і LinkedIn. Кнопку завантаження CV не додавати.</div></div></li>
+        <li class="q"><span class="idx">08</span><div>
+          <p class="ask">Де буде візуал першого екрана: фото, 3D-елемент чи композиція з обкладинок трьох кейсів? Чи є готові матеріали для цього?</p>
+          <div class="ans"><strong>Відповідь:</strong> Мінімалізм і виразна типографіка, можливо з 3D-елементами. Остаточне рішення ще не прийняте.</div></div></li>
+        <li class="q"><span class="idx">09</span><div>
+          <p class="ask">Чи потрібен на головній окремий блок навичок і інструментів, чи вистачить їх у кейсах? Якщо потрібен, що у ньому буде?</p>
+          <div class="ans"><strong>Відповідь:</strong> Потрібен окремий компактний блок «Навички» на головній. Інструменти: Figma та AI-інструменти.</div></div></li>
+        <li class="q"><span class="idx">10</span><div>
+          <p class="ask">Де будете збирати сайт (конструктор чи код) і чи є вже домен?</p>
+          <div class="ans"><strong>Відповідь:</strong> Сайт створюватиметься кодом. Домену поки немає.</div></div></li>
+        <li class="q"><span class="idx">11</span><div>
+          <p class="ask">Скільки тривав комерційний досвід у дизайн-агентстві і чи вказувати термін на сайті?</p>
+          <div class="ans"><strong>Відповідь:</strong> 6 місяців. Тривалість досвіду на сайті не вказувати.</div></div></li>
+        <li class="q"><span class="idx">12</span><div>
+          <p class="ask">Які навички, окрім Figma та AI-інструментів, показати в блоці «Навички» і які саме AI-інструменти назвати?</p>
+          <div class="ans"><strong>Відповідь:</strong> Блок залишається компактним, без великого переліку навичок. Вказати: Figma, AI Tools та напрямки UI/UX Design, Web Design, Mobile Design.</div></div></li>
+        <li class="q"><span class="idx">13</span><div>
+          <p class="ask">Які адреси email, посилання на Behance і LinkedIn поставити на сайт?</p>
+          <div class="ans"><strong>Відповідь:</strong>
+            <ul>
+              <li>Email: perekos98@gmail.com</li>
+              <li>Behance: <a href="https://www.behance.net/81eaad19">https://www.behance.net/81eaad19</a></li>
+              <li>LinkedIn: <a href="https://www.linkedin.com/in/taya-perekos/">https://www.linkedin.com/in/taya-perekos/</a></li>
+            </ul></div></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="end"></div>
+</div>
+</body>
+</html>
